@@ -1,0 +1,327 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.nurse"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:4:5-65
+12-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:4:22-62
+13    <uses-permission android:name="android.permission.VIBRATE" />
+13-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:5:5-65
+13-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:5:22-63
+14    <uses-permission
+14-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:7:9-9:72
+15        android:name="android.permission.ACCESS_FINE_LOCATION"
+15-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:9:16-70
+16        android:required="true" />
+16-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:8:15-38
+17    <uses-permission
+17-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:10:4-12:65
+18        android:name="android.permission.ACCESS_WIFI_STATE"
+18-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:12:12-63
+19        android:required="true" />
+19-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:11:12-35
+20    <uses-permission
+20-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:13:4-15:65
+21        android:name="android.permission.CHANGE_WIFI_STATE"
+21-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:15:12-63
+22        android:required="true" />
+22-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:14:12-35
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:16:4-80
+23-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:16:21-77
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+24-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:17:4-78
+24-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:17:21-76
+25    <!-- If your app targets Android 13 (API level 33) or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
+26    <uses-permission
+26-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:19:4-124
+27        android:name="android.permission.NEARBY_WIFI_DEVICES"
+27-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:19:21-74
+28        android:usesPermissionFlags="neverForLocation" />
+28-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:19:75-121
+29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+29-->[:react-native-community_netinfo] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-79
+29-->[:react-native-community_netinfo] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:22-76
+30
+31    <uses-feature
+31-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:5-11:36
+32        android:name="android.hardware.camera"
+32-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:10:9-47
+33        android:required="false" />
+33-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:11:9-33
+34    <uses-feature
+34-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:12:5-14:36
+35        android:name="android.hardware.camera.autofocus"
+35-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:13:9-57
+36        android:required="false" />
+36-->[:react-native-camera] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:14:9-33
+37
+38    <queries>
+38-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-18:15
+39
+40        <!-- Query open documents -->
+41        <intent>
+41-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-17:18
+42            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
+42-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-79
+42-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:21-76
+43        </intent>
+44    </queries>
+45
+46    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+46-->[com.android.installreferrer:installreferrer:1.0] /Users/muhammadahmad/.gradle/caches/transforms-3/5677f720421bf6948dac9e1927cb2e47/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
+46-->[com.android.installreferrer:installreferrer:1.0] /Users/muhammadahmad/.gradle/caches/transforms-3/5677f720421bf6948dac9e1927cb2e47/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
+47
+48    <application
+48-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:23:5-44:19
+49        android:name="com.nurse.MainApplication"
+49-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:24:7-38
+50        android:allowBackup="false"
+50-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:28:7-34
+51        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+51-->[androidx.core:core:1.8.0] /Users/muhammadahmad/.gradle/caches/transforms-3/9623e378e4dfc57c47793d0ffd25ee05/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+52        android:icon="@mipmap/ic_launcher"
+52-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:26:7-41
+53        android:label="@string/app_name"
+53-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:25:7-39
+54        android:roundIcon="@mipmap/ic_launcher_round"
+54-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:27:7-52
+55        android:theme="@style/AppTheme"
+55-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:30:7-38
+56        android:usesCleartextTraffic="true" >
+56-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:29:7-42
+57        <activity
+57-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:31:7-43:18
+58            android:name="com.nurse.MainActivity"
+58-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:32:9-37
+59            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+59-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:34:9-118
+60            android:exported="true"
+60-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:37:9-32
+61            android:label="@string/app_name"
+61-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:33:9-41
+62            android:launchMode="singleTask"
+62-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:35:9-40
+63            android:theme="@style/BootTheme"
+63-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:38:9-41
+64            android:windowSoftInputMode="adjustPan" >
+64-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:36:9-48
+65            <intent-filter>
+65-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:39:9-42:25
+66                <action android:name="android.intent.action.MAIN" />
+66-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:40:13-65
+66-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:40:21-62
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:41:13-73
+68-->/Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/android/app/src/main/AndroidManifest.xml:41:23-70
+69            </intent-filter>
+70        </activity>
+71
+72        <provider
+72-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:9-30:20
+73            android:name="expo.modules.filesystem.FileSystemFileProvider"
+73-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-74
+74            android:authorities="com.nurse.FileSystemFileProvider"
+74-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-74
+75            android:exported="false"
+75-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-37
+76            android:grantUriPermissions="true" >
+76-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-47
+77            <meta-data
+77-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-29:70
+78                android:name="android.support.FILE_PROVIDER_PATHS"
+78-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-67
+79                android:resource="@xml/file_system_provider_paths" />
+79-->[:expo-file-system] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-file-system/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-67
+80        </provider>
+81
+82        <meta-data
+82-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:9-11:89
+83            android:name="org.unimodules.core.AppLoader#react-native-headless"
+83-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-79
+84            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader" />
+84-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-86
+85        <meta-data
+85-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:9-15:45
+86            android:name="com.facebook.soloader.enabled"
+86-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-57
+87            android:value="true" />
+87-->[:expo-modules-core] /Users/muhammadahmad/ahmad/ReactNative/Onedrive/nurse/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-33
+88
+89        <service
+89-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:9:9-15:19
+90            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+90-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:10:13-91
+91            android:directBootAware="true"
+91-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:17:13-43
+92            android:exported="false" >
+92-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:11:13-37
+93            <meta-data
+93-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:12:13-14:85
+94                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+94-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:13:17-120
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/97799781954acc3d7354150c72b84ae2/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:14:17-82
+96            <meta-data
+96-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b9f3389d51c178b8d896d7baeb40c059/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:12:13-14:85
+97                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+97-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b9f3389d51c178b8d896d7baeb40c059/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:13:17-114
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b9f3389d51c178b8d896d7baeb40c059/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:14:17-82
+99            <meta-data
+99-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b92474410cc7ebbd2fad55921816aa5f/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:12:13-14:85
+100                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+100-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b92474410cc7ebbd2fad55921816aa5f/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:13:17-114
+101                android:value="com.google.firebase.components.ComponentRegistrar" />
+101-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b92474410cc7ebbd2fad55921816aa5f/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:14:17-82
+102            <meta-data
+102-->[com.google.mlkit:vision-common:16.5.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b86801a92097a5dcc8fcd3577b45f061/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:12:13-14:85
+103                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+103-->[com.google.mlkit:vision-common:16.5.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b86801a92097a5dcc8fcd3577b45f061/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:13:17-124
+104                android:value="com.google.firebase.components.ComponentRegistrar" />
+104-->[com.google.mlkit:vision-common:16.5.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b86801a92097a5dcc8fcd3577b45f061/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:14:17-82
+105            <meta-data
+105-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:20:13-22:85
+106                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+106-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:21:17-120
+107                android:value="com.google.firebase.components.ComponentRegistrar" />
+107-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:22:17-82
+108        </service>
+109
+110        <provider
+110-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:9:9-13:38
+111            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+111-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:10:13-78
+112            android:authorities="com.nurse.mlkitinitprovider"
+112-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:11:13-69
+113            android:exported="false"
+113-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:12:13-37
+114            android:initOrder="99" />
+114-->[com.google.mlkit:common:17.2.0] /Users/muhammadahmad/.gradle/caches/transforms-3/53ad5d231868f74729b71d2d86f60f8e/transformed/jetified-common-17.2.0/AndroidManifest.xml:13:13-35
+115
+116        <activity
+116-->[com.google.android.gms:play-services-base:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/795676a79a0c8e1cc25c8530d5bb032b/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:23:9-26:75
+117            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+117-->[com.google.android.gms:play-services-base:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/795676a79a0c8e1cc25c8530d5bb032b/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:24:13-79
+118            android:exported="false"
+118-->[com.google.android.gms:play-services-base:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/795676a79a0c8e1cc25c8530d5bb032b/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:25:13-37
+119            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+119-->[com.google.android.gms:play-services-base:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/795676a79a0c8e1cc25c8530d5bb032b/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:26:13-72
+120
+121        <meta-data
+121-->[com.google.android.gms:play-services-basement:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b63984d3b045444cdc55f8997826a36d/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:23:9-25:69
+122            android:name="com.google.android.gms.version"
+122-->[com.google.android.gms:play-services-basement:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b63984d3b045444cdc55f8997826a36d/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:24:13-58
+123            android:value="@integer/google_play_services_version" />
+123-->[com.google.android.gms:play-services-basement:17.6.0] /Users/muhammadahmad/.gradle/caches/transforms-3/b63984d3b045444cdc55f8997826a36d/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:25:13-66
+124
+125        <provider
+125-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+126            android:name="androidx.startup.InitializationProvider"
+126-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+127            android:authorities="com.nurse.androidx-startup"
+127-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+128            android:exported="false" >
+128-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+129            <meta-data
+129-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+130                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+130-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+131                android:value="androidx.startup" />
+131-->[androidx.emoji2:emoji2:1.0.0] /Users/muhammadahmad/.gradle/caches/transforms-3/223146ef33e3aa619e8b04649706e145/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+132            <meta-data
+132-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/muhammadahmad/.gradle/caches/transforms-3/08e4a4208e3ca4010b209b1808905132/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+133                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+133-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/muhammadahmad/.gradle/caches/transforms-3/08e4a4208e3ca4010b209b1808905132/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+134                android:value="androidx.startup" />
+134-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/muhammadahmad/.gradle/caches/transforms-3/08e4a4208e3ca4010b209b1808905132/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+135            <meta-data
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+136                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+137                android:value="androidx.startup" />
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+138        </provider>
+139
+140        <receiver
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+141            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+142            android:directBootAware="false"
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+143            android:enabled="true"
+143-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+144            android:exported="true"
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+145            android:permission="android.permission.DUMP" >
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+146            <intent-filter>
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+147                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+148            </intent-filter>
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+150                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+151            </intent-filter>
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+153                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+154            </intent-filter>
+155            <intent-filter>
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+156                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/muhammadahmad/.gradle/caches/transforms-3/2687b1f3b7881759e689af177e21a673/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+157            </intent-filter>
+158        </receiver>
+159
+160        <service
+160-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+161            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+161-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+162            android:exported="false" >
+162-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+163            <meta-data
+163-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+164                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+164-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+165                android:value="cct" />
+165-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/muhammadahmad/.gradle/caches/transforms-3/e39449332b16abbff71917ad5661bdd3/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+166        </service>
+167        <service
+167-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+168            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+168-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+169            android:exported="false"
+169-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+170            android:permission="android.permission.BIND_JOB_SERVICE" >
+170-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+171        </service>
+172
+173        <receiver
+173-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+174            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+174-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+175            android:exported="false" />
+175-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/muhammadahmad/.gradle/caches/transforms-3/5b4aa339182f7c0c9798b03e5e65fdd0/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+176    </application>
+177
+178</manifest>

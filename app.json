@@ -1,0 +1,5 @@
+{
+  "name": "nurse",
+  "displayName": "nurse",
+  "plugins": ["expo-localization"]
+}
