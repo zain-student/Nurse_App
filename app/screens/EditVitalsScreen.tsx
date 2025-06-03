@@ -350,39 +350,72 @@ export const EditVitalsScreen: FC<PatientStackScreenProps<'EditVitals'>> =
                     'itemmmmmm',
                     item.Name + ': ' + values[item.Name],
                   )}
+
                   <TextField
-                    value={values[item.Name]}
-                    onChangeText={text => updateValues(item.Name, text)}
-                    // value={
-                    //   values.hasOwnProperty(item.Name) && values[item.Name]
-                    //   // + ' ' + item.Unit
-                    // }
-                    // onChangeText={(text) => {
-                    //   var obj = values
-                    //   if (obj.hasOwnProperty(item.Name)) {
-                    //     obj[item.Name] = text
-                    //   } else {
-                    //     obj[item.Name] = text
-                    //   }
-                    //   setValues(obj)
-                    //   console.log("logging. array....", obj)
-                    // }}
+                    value={
+                      item.Name === 'Height' && values.hasOwnProperty('Height')
+                        ? values['Height']
+                          ? String(
+                              Math.round(parseFloat(values['Height']) * 30.48),
+                            ) // feet → rounded cm
+                          : ''
+                        : values[item.Name] ?? ''
+                    }
+                    onChangeText={text => {
+                      const obj = {...values};
+
+                      if (item.Name === 'Height') {
+                        const cmValue = parseFloat(text);
+                        const feetValue = !isNaN(cmValue)
+                          ? (cmValue / 30.48).toFixed(2)
+                          : '';
+                        obj['Height'] = feetValue;
+                      } else if (item.Name === 'Weight') {
+                        obj['Weight'] = text;
+                      } else {
+                        obj[item.Name] = text;
+                      }
+
+                      // --- BMI Calculation ---
+                      const heightFeet = parseFloat(obj['Height']);
+                      const weightKg = parseFloat(obj['Weight']);
+
+                      if (!isNaN(heightFeet) && !isNaN(weightKg)) {
+                        const heightMeters = heightFeet * 0.3048;
+                        const bmi = weightKg / (heightMeters * heightMeters);
+                        obj['BMI'] = bmi.toFixed(2);
+
+                        // Classification
+                        let status = '';
+                        if (bmi < 18.5) status = 'Underweight';
+                        else if (bmi < 25) status = 'Normal';
+                        else if (bmi < 30) status = 'Overweight';
+                        else status = 'Above Obese';
+
+                        obj['BMI Status'] = status;
+                      } else {
+                        obj['BMI'] = '';
+                        obj['BMI Status'] = '';
+                      }
+
+                      setValues(obj);
+                      console.log('Updated values:', obj);
+                    }}
                     inputWrapperStyle={{
                       backgroundColor: colors.inputBackground,
                     }}
                     containerStyle={$textField}
                     autoCapitalize="none"
-                    // autoComplete="email"
                     autoCorrect={false}
                     keyboardType="numeric"
                     labelTx={item.Name}
                     placeholderTx={item.Name}
-                    // onSubmitEditing={() => authPasswordInput.current?.focus()}
                   />
+
                   <Text
                     preset="formLabel"
                     style={{marginStart: '2%', marginTop: spacing.sm}}>
-                    {item.Unit}
+                    {item.Name === 'Height' ? 'CM' : item.Unit}
                   </Text>
                 </View>
               );

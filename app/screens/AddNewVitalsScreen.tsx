@@ -7,6 +7,7 @@ import {
   View,
   ViewStyle,
   FlatList,
+  ToastAndroid,
 } from 'react-native';
 import {
   Header,
@@ -195,11 +196,11 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
     function savePressed() {
       console.log('Vitals list.....', values);
       console.log('Vitals list.....', nursingNote);
-
       patientStore.addVitals(values);
       patientStore.addNursingNote(nursingNote);
       const currentDateTime = moment().toISOString();
       patientStore.addVitalsTimeTime(currentDateTime);
+
       patientStore.addNurseName(
         authenticationStore.login
           ? authenticationStore.login[0]?.FullName
@@ -211,7 +212,8 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
       // console.log('-=-=-==--=-=-=-=-', patientStore.getSelectedPatient())
       patientStore.getSelectedPatient().length > 0 &&
         patientStore.deselectPatient(patientStore.getSelectedPatient()[0]);
-
+      // it will reset the values to clear the fields when user save the vitals
+      setValues({});
       navigation.navigate('Home');
     }
 
@@ -261,7 +263,9 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
           //   payload: tempPatient,
           // });
         }
-      } catch (e) {}
+      } catch (e) {
+        console.error('Error while sending patient data to doctor:', e);
+      }
     };
 
     function advanceSearchPress() {
@@ -299,19 +303,61 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
           <ScrollView style={$patientsListView}>
             {fieldStore.fieldsForList.map(item => {
               return (
-                <View style={$fieldRowView}>
+                <View style={$fieldRowView} key={item.Name}>
                   <TextField
                     value={
-                      values.hasOwnProperty(item.Name) && values[item.Name]
-                      // + ' ' + item.Unit
+                      item.Name === 'Height'
+                        ? values.hasOwnProperty(item.Name) && values[item.Name]
+                          ? parseFloat(values[item.Name]) * 30.48 // feet → cm
+                          : ''
+                        : values.hasOwnProperty(item.Name) && values[item.Name]
+                        ? values[item.Name]
+                        : ''
                     }
                     onChangeText={text => {
-                      var obj = values;
-                      // if(obj.hasOwnProperty(item.Name)){
-                      obj[item.Name] = text;
-                      // }else{
-                      // obj[item.Name] = text
-                      // }
+                      var obj = {...values}; // spread to avoid mutation
+                      if (item.Name === 'Height') {
+                        const cmValue = parseFloat(text); // cm → feet
+                        const feetValue = isNaN(cmValue)
+                          ? ''
+                          : (cmValue / 30.48).toFixed(2);
+                        // obj[item.Name] = feetValue;
+                        obj[item.Name] = isNaN(cmValue)
+                          ? ''
+                          : String((cmValue / 30.48).toFixed(2));
+                        // console.log('Value entered in CM:', cmValue); // it will log the entered cm value
+                      } else if (item.Name === 'Weight') {
+                        //....
+                        obj[item.Name] = text;
+                      } else {
+                        obj[item.Name] = text;
+                      }
+                      //BMI Calculation Logic
+                      // checks if both the values exist or not
+                      const heightFeet = parseFloat(obj['Height']);
+                      const weightKg = parseFloat(obj['Weight']);
+
+                      if (!isNaN(heightFeet) && !isNaN(weightKg)) {
+                        const heightMeters = heightFeet * 0.3048; // Converting value from feet to meters
+                        const bmi = weightKg / (heightMeters * heightMeters); // Formula to calculate BMI
+                        obj['BMI'] = bmi.toFixed(2); // Storing BMI value in the object
+                        // console.log('BMI:', bmi); // it will log the calculated BMI value
+                        // console.log('Height in meters:', heightMeters); // it will log the converted height value
+                        // console.log('Weight in kg:', weightKg); // it will log the entered weight value
+
+                        // BMI Classification
+                        let status = '';
+                        if (bmi < 18.5) status = 'Underweight';
+                        else if (bmi < 25) status = 'Normal';
+                        else if (bmi < 30) status = 'Overweight';
+                        else status = 'Above Obese';
+
+                        obj['BMI Status'] = status; // passing BMI status to the object
+                      } else {
+                        obj['BMI'] = '';
+                        obj['BMI Status'] = '';
+                      }
+
                       setValues(obj);
                       console.log('logging. array....', obj);
                     }}
@@ -320,17 +366,18 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
                     }}
                     containerStyle={$textField}
                     autoCapitalize="none"
-                    // autoComplete="email"
                     autoCorrect={false}
                     keyboardType="numeric"
                     labelTx={item.Name}
                     placeholderTx={item.Name}
-                    // onSubmitEditing={() => authPasswordInput.current?.focus()}
+                    // onSubmitEditing={() => authPasswordInput.current?.focus()
                   />
+
                   <Text
                     preset="formLabel"
                     style={{marginStart: '2%', marginTop: spacing.sm}}>
-                    {item.Unit}
+                    {/* {item.Unit} */}
+                    {item.Name === 'Height' ? 'CM' : item.Unit}
                   </Text>
                 </View>
               );

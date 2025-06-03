@@ -177,15 +177,24 @@ export const PatientVitalsHistoryScreen: FC<
       )}
       {Object.keys(title).map(item => {
         if (title[item]) {
+          const isHeight = item.toLowerCase() === 'height';
+          // const value = isHeight
+          //   ? `${(parseFloat(title[item]) * 30.48).toFixed(1)} cm`
+          //   : title[item];
+          const value = isHeight
+            ? `${Math.round(parseFloat(title[item]) * 30.48)}`
+            : title[item];
+          //.....................
           return (
             <View style={[$patientItemDetailView, {padding: spacing.sm}]}>
-              {console.log('-=-=-=-=-=-=-=  item', item)}
-              {console.log('-=-=-=-=-=-=-=  item2', title[item])}
+              {/* {console.log('-=-=-=-=-=-=-=  item', item)} */}
+              {/* {console.log('-=-=-=-=-=-=-=  item2', title[item])} */}
               <Text testID="login-heading" preset="bold" style={$patientsText}>
                 {item}
               </Text>
               <Text testID="login-heading" preset="bold" style={$patientsText}>
-                {title[item] ? title[item] : ''}
+                {/* {title[item] ? title[item] : ''} */}
+                {value}
               </Text>
             </View>
           );
