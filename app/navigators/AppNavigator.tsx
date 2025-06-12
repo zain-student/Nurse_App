@@ -68,7 +68,7 @@ export type AppStackParamList = {
  */
 const exitRoutes = Config.exitRoutes;
 
-const mmkvStorage = new MMKV();
+export const mmkvStorage = new MMKV();
 export type AppStackScreenProps<T extends keyof AppStackParamList> =
   NativeStackScreenProps<AppStackParamList, T>;
 

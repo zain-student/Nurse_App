@@ -196,11 +196,18 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
     function savePressed() {
       console.log('Vitals list.....', values);
       console.log('Vitals list.....', nursingNote);
+      //............................
+      const selectedPatient = patientStore.getSelectedPatient()[0];
+      if (!selectedPatient) {
+        console.warn('No patient selected!');
+        return;
+      }
+      console.log('hhhh'); //.....................
       patientStore.addVitals(values);
       patientStore.addNursingNote(nursingNote);
       const currentDateTime = moment().toISOString();
       patientStore.addVitalsTimeTime(currentDateTime);
-
+ 
       patientStore.addNurseName(
         authenticationStore.login
           ? authenticationStore.login[0]?.FullName
@@ -208,7 +215,8 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
             : ''
           : '',
       );
-      transferDataToReceptionist(currentDateTime);
+      transferDataToReceptionist(currentDateTime, selectedPatient); // ............
+      // transferDataToReceptionist(currentDateTime);
       // console.log('-=-=-==--=-=-=-=-', patientStore.getSelectedPatient())
       patientStore.getSelectedPatient().length > 0 &&
         patientStore.deselectPatient(patientStore.getSelectedPatient()[0]);
@@ -217,11 +225,17 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
       navigation.navigate('Home');
     }
 
-    const transferDataToReceptionist = (_currentDateTime: string) => {
+    const transferDataToReceptionist = (
+      _currentDateTime: string,
+      selectedPatient,
+    ) => {
+      //... added selected patient
       try {
         let tempPatient = JSON.parse(
-          JSON.stringify(patientStore.getSelectedPatient()[0]),
+          JSON.stringify(selectedPatient), //..........................
+          // JSON.stringify(patientStore.getSelectedPatient()[0]),
         );
+        tempPatient.MRN = selectedPatient.MRN || tempPatient.MRN || '';  // ...........................
         var array = [];
         array.push(values);
         tempPatient.Vitals = array;
@@ -252,6 +266,7 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
             global.successResponses.splice(sIndexToFind, 1);
           }
         }
+        console.warn('Sending patient data to doctor:', tempPatient); //....................
         console.warn('userContext.clientSocket', userContext.clientSocket);
         if (userContext.clientSocket) {
           userContext.clientSocket.write(
