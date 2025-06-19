@@ -641,7 +641,7 @@ export const PatientStatusScreen: FC<HomeTabScreenProps<'PatientStatus'>> =
             <FlatList
               key={refresh}
               // data={patientQueue}
-              data={patientsForList}
+              data={patientsForList.filter(item=>item.isUserAdded)}
               // style={$patientsListView}
               // extraData={refresh}
               renderItem={({item}) => <PatientItem title={item} />}

@@ -233,6 +233,7 @@ const AppStack = observer(function AppStack() {
                 Services: [],
                 Status: receivedData.Status,
                 PrescriptionTime: receivedData.PrescriptionTime,
+                isUserAdded: receivedData.isUserAdded ?? false,
 
                 CheckInSynced: false,
                 NursingNote: '',

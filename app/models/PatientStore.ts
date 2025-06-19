@@ -306,10 +306,24 @@ export const PatientStoreModel = types
       if (store.selectedPatient[0])
         store.selectedPatient[0].CheckInSynced = checkedInSynced;
     },
+    // addNewPatient(patient: Patient) {
+    //   console.log('patient in add new patient....', patient);
+    //   store.patients.push(patient);
+    // },
     addNewPatient(patient: Patient) {
-      console.log('patient in add new patient....', patient);
-      store.patients.push(patient);
-    },
+  const index = store.patients.findIndex(p => p.PatientId === patient.PatientId);
+  
+  if (index !== -1) {
+    // 👇 Replace existing patient with updated one
+    store.patients[index] = patient;
+    console.log('📝 Updated existing patient with ID:', patient.PatientId);
+  } else {
+    // 👇 Add new patient
+    store.patients.push(patient);
+    console.log('➕ Added new patient with ID:', patient.PatientId);
+  }
+},
+
     addAddressToNewPatient(
       address: string,
       country: string,
@@ -426,7 +440,7 @@ const msUntilMidnight = midnight.getTime() - now.getTime();
     console.log('⏱️ Midnight reached — resetting patient queue.');
     store.patientQueue.clear();
     store.selectedPatient.clear();
-        store.patients.clear?.();  // This will remove the patients that are from api 
+        store.patientsForList.clear?.();  // This will remove the patients that are from api 
     // ✅ Save the reset date
     mmkvStorage.set('lastPatientReset', new Date().toDateString());
     ToastAndroid.show('⏱️ Midnight reached — resetting patient queue.',ToastAndroid.LONG);
