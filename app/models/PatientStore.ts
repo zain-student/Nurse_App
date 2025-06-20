@@ -232,27 +232,52 @@ export const PatientStoreModel = types
       //   console.tron.error(`Error fetching patients: ${JSON.stringify(response)}`, [])
       // }
     },
+    // setPatients(
+    //   num: number,
+    //   receivedData: any,
+    //   sender: string,
+    //   isCheckoutSync?: boolean,
+    // ) {
+    //   let temp = [...store.patients];
+    //   if (sender === 'pharmacy') {
+    //     temp[num].Status = 'Pharmacy';
+    //     temp[num].PharmacyTime = receivedData.PharmacyTime;
+    //   } else {
+    //     if (isCheckoutSync) {
+    //       temp[num].Status = 'CheckOut';
+    //       temp[num].CheckoutTime = receivedData.CheckoutTime;
+    //     } else {
+    //       temp[num].Status = receivedData.Status;
+    //       temp[num].PrescriptionTime = receivedData.PrescriptionTime;
+    //     }
+    //   }
+    //   store.setProp('patients', temp);
+    // },
     setPatients(
-      num: number,
-      receivedData: any,
-      sender: string,
-      isCheckoutSync?: boolean,
-    ) {
-      let temp = [...store.patients];
-      if (sender === 'pharmacy') {
-        temp[num].Status = 'Pharmacy';
-        temp[num].PharmacyTime = receivedData.PharmacyTime;
-      } else {
-        if (isCheckoutSync) {
-          temp[num].Status = 'CheckOut';
-          temp[num].CheckoutTime = receivedData.CheckoutTime;
-        } else {
-          temp[num].Status = receivedData.Status;
-          temp[num].PrescriptionTime = receivedData.PrescriptionTime;
-        }
-      }
-      store.setProp('patients', temp);
-    },
+  index: number,
+  receivedData: any,
+  sender: string,
+  isCheckoutSync?: boolean,
+) {
+  let temp = [...store.patients];
+  let existing = temp[index];
+
+  const updated = {
+    ...existing, // keep previous fields
+    ...receivedData, // overwrite with updated ones
+  };
+
+  if (sender === 'pharmacy') {
+    updated.Status = 'Pharmacy';
+    updated.PharmacyTime = receivedData.PharmacyTime;
+  } else if (isCheckoutSync) {
+    updated.Status = 'CheckOut';
+    updated.CheckoutTime = receivedData.CheckoutTime;
+  }
+
+  temp[index] = updated;
+  store.setProp('patients', temp);
+},
     addPatientInQueue(patient: Patient) {
       store.patientQueue.push(patient);
     },

@@ -191,23 +191,45 @@ const AppStack = observer(function AppStack() {
             patient => patient.PatientId === receivedData.PatientId,
           );
           console.warn('item ::', item, sender, sender === 'doctor');
+//.................. 
+// This is added to receive the updated
           if (item) {
-            if (sender === 'doctor' || sender === 'pharmacy') {
-              console.warn('updating data from doctor');
-              let ind = patientStore.patientsForList.findIndex(
-                patient => patient.PatientId === receivedData.PatientId,
-              );
-              patientStore.setPatients(
-                ind,
-                receivedData,
-                sender,
-                isCheckoutSync,
-              );
-              setTimeout(() => {
-                setRefreshData(Math.random().toString());
-              }, 1400);
-            }
-          } else {
+  if (sender === 'doctor' || sender === 'pharmacy' || sender === 'receptionist') {
+    console.warn('updating data from', sender);
+    let ind = patientStore.patientsForList.findIndex(
+      patient => patient.PatientId === receivedData.PatientId,
+    );
+    patientStore.setPatients(
+      ind,
+      receivedData,
+      sender,
+      isCheckoutSync,
+    );
+    ToastAndroid.show('Patient updated', ToastAndroid.SHORT); // ✅
+    setTimeout(() => {
+      setRefreshData(Math.random().toString());
+    }, 1400);
+  }
+}
+
+          // if (item) {
+          //   if (sender === 'doctor' || sender === 'pharmacy') {
+          //     console.warn('updating data from doctor');
+          //     let ind = patientStore.patientsForList.findIndex(
+          //       patient => patient.PatientId === receivedData.PatientId,
+          //     );
+          //     patientStore.setPatients(
+          //       ind,
+          //       receivedData,
+          //       sender,
+          //       isCheckoutSync,
+          //     );
+          //     setTimeout(() => {
+          //       setRefreshData(Math.random().toString());
+          //     }, 1400);
+          //   }
+          // } 
+          else {
             if (sender === 'pharmacy') {
               return;
             }
