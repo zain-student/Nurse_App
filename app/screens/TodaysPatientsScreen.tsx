@@ -244,7 +244,7 @@ export const TodaysPatientsScreen: FC<HomeTabScreenProps<'TodaysPatients'>> =
             <FlatList
               key={refresh}
               data={patientStore.patientsForList
-               .filter(item=> item.isUserAdded) 
+              //  .filter(item=> item.isUserAdded) 
               }
                 //   this filter is used to show only user added patients
               

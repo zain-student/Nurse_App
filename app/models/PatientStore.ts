@@ -76,41 +76,41 @@ const PATIENTS = [
 
     CheckInSynced: false,
   },
-  {
-    PatientId: 100031,
-    FirstName: 'Zahid',
-    LastName: 'Shahid',
-    MRNNo: '01-01-0100031',
-    DOB: '1/1/1980 12:00:00 AM',
-    CNIC: '41406-9577288-8',
-    CellPhoneNumber: '03133751890',
-    Gender: 'Male',
-    SiteName: 'Gharo',
-    MartialStatus: 'Married',
-    SpouseName: 'Shahid',
-    ZakatEligible: false,
-    Country: 'Pakistan',
-    City: 'Thatta',
-    Province: 'Sindh',
-    Address: 'Eid Ghah Mohallah',
-    EnteredOn: '2023-10-16T16:35:43.607',
-    Services: [
-      {
-        ServiceId: 30013,
-        ServiceName: 'Consultation',
-        Charges: '40',
-      },
-    ],
-    Status: 'CheckIn',
+  // {
+  //   PatientId: 100031,
+  //   FirstName: 'Zahid',
+  //   LastName: 'Shahid',
+  //   MRNNo: '01-01-0100031',
+  //   DOB: '1/1/1980 12:00:00 AM',
+  //   CNIC: '41406-9577288-8',
+  //   CellPhoneNumber: '03133751890',
+  //   Gender: 'Male',
+  //   SiteName: 'Gharo',
+  //   MartialStatus: 'Married',
+  //   SpouseName: 'Shahid',
+  //   ZakatEligible: false,
+  //   Country: 'Pakistan',
+  //   City: 'Thatta',
+  //   Province: 'Sindh',
+  //   Address: 'Eid Ghah Mohallah',
+  //   EnteredOn: '2023-10-16T16:35:43.607',
+  //   Services: [
+  //     {
+  //       ServiceId: 30013,
+  //       ServiceName: 'Consultation',
+  //       Charges: '40',
+  //     },
+  //   ],
+  //   Status: 'CheckIn',
 
-    CheckInTime: moment('2023-10-16').toISOString(),
-    VitalsTime: null,
-    PrescriptionTime: null,
-    PharmacyTime: null,
-    CheckoutTime: null,
+  //   CheckInTime: moment('2023-10-16').toISOString(),
+  //   VitalsTime: null,
+  //   PrescriptionTime: null,
+  //   PharmacyTime: null,
+  //   CheckoutTime: null,
 
-    CheckInSynced: false,
-  },
+  //   CheckInSynced: false,
+  // },
 ];
 
 const PATIENTS_SELECTED = [
@@ -465,7 +465,8 @@ const msUntilMidnight = midnight.getTime() - now.getTime();
     console.log('⏱️ Midnight reached — resetting patient queue.');
     store.patientQueue.clear();
     store.selectedPatient.clear();
-        store.patientsForList.clear?.();  // This will remove the patients that are from api 
+    store.patients.clear();
+    store.patientsForList.clear?.();  // This will remove the patients that are from api 
     // ✅ Save the reset date
     mmkvStorage.set('lastPatientReset', new Date().toDateString());
     ToastAndroid.show('⏱️ Midnight reached — resetting patient queue.',ToastAndroid.LONG);
