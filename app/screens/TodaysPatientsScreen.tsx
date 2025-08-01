@@ -243,7 +243,7 @@ export const TodaysPatientsScreen: FC<HomeTabScreenProps<'TodaysPatients'>> =
           <View style={$patientsListView}>
             <FlatList
               key={refresh}
-              data={patientStore.patientsForList
+              data={patientStore.patientsForList.filter(item=>item.MRNNo !== "01-01-0100033" && item.MRNNo!== "01-01-0100032")
               //  .filter(item=> item.isUserAdded) 
               }
                 //   this filter is used to show only user added patients

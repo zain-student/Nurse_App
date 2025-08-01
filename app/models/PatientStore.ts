@@ -1,6 +1,6 @@
 import {Instance, SnapshotOut, types} from 'mobx-state-tree';
 import {api} from '../services/api';
-import { ToastAndroid } from 'react-native';
+import {ToastAndroid} from 'react-native';
 import {Patient, PatientModel} from './Patient';
 import {Service, ServiceModel} from './Service';
 import {withSetPropAction} from './helpers/withSetPropAction';
@@ -254,30 +254,30 @@ export const PatientStoreModel = types
     //   store.setProp('patients', temp);
     // },
     setPatients(
-  index: number,
-  receivedData: any,
-  sender: string,
-  isCheckoutSync?: boolean,
-) {
-  let temp = [...store.patients];
-  let existing = temp[index];
+      index: number,
+      receivedData: any,
+      sender: string,
+      isCheckoutSync?: boolean,
+    ) {
+      let temp = [...store.patients];
+      let existing = temp[index];
 
-  const updated = {
-    ...existing, // keep previous fields
-    ...receivedData, // overwrite with updated ones
-  };
+      const updated = {
+        ...existing, // keep previous fields
+        ...receivedData, // overwrite with updated ones
+      };
 
-  if (sender === 'pharmacy') {
-    updated.Status = 'Pharmacy';
-    updated.PharmacyTime = receivedData.PharmacyTime;
-  } else if (isCheckoutSync) {
-    updated.Status = 'CheckOut';
-    updated.CheckoutTime = receivedData.CheckoutTime;
-  }
+      if (sender === 'pharmacy') {
+        updated.Status = 'Pharmacy';
+        updated.PharmacyTime = receivedData.PharmacyTime;
+      } else if (isCheckoutSync) {
+        updated.Status = 'CheckOut';
+        updated.CheckoutTime = receivedData.CheckoutTime;
+      }
 
-  temp[index] = updated;
-  store.setProp('patients', temp);
-},
+      temp[index] = updated;
+      store.setProp('patients', temp);
+    },
     addPatientInQueue(patient: Patient) {
       store.patientQueue.push(patient);
     },
@@ -336,18 +336,20 @@ export const PatientStoreModel = types
     //   store.patients.push(patient);
     // },
     addNewPatient(patient: Patient) {
-  const index = store.patients.findIndex(p => p.PatientId === patient.PatientId);
-  
-  if (index !== -1) {
-    // 👇 Replace existing patient with updated one
-    store.patients[index] = patient;
-    console.log('📝 Updated existing patient with ID:', patient.PatientId);
-  } else {
-    // 👇 Add new patient
-    store.patients.push(patient);
-    console.log('➕ Added new patient with ID:', patient.PatientId);
-  }
-},
+      const index = store.patients.findIndex(
+        p => p.PatientId === patient.PatientId,
+      );
+
+      if (index !== -1) {
+        // 👇 Replace existing patient with updated one
+        store.patients[index] = patient;
+        console.log('📝 Updated existing patient with ID:', patient.PatientId);
+      } else {
+        // 👇 Add new patient
+        store.patients.push(patient);
+        console.log('➕ Added new patient with ID:', patient.PatientId);
+      }
+    },
 
     addAddressToNewPatient(
       address: string,
@@ -424,55 +426,64 @@ export const PatientStoreModel = types
     midnightResetTimer: null as ReturnType<typeof setTimeout> | null,
   }))
   .actions(store => ({
+    setupMidnightReset() {
+      const now = new Date();
+      const today = now.toDateString();
+      console.log('1');
 
-setupMidnightReset() {
-  const now = new Date();
-  const today = now.toDateString();
-  console.log("1");
-  
-  const lastReset = mmkvStorage.getString('lastPatientReset');
+      const lastReset = mmkvStorage.getString('lastPatientReset');
 
-  // if (lastReset !== today) {
-  //   console.log('🔁 App opened after midnight — resetting now...');
-  //   store.resetPatientsAtMidnight();
-  // }
-if (lastReset !== today) {
-  console.log('🔁 App opened after midnight — resetting now...');
-  setTimeout(() => {
-    store.resetPatientsAtMidnight(); // ✅ Delayed reset avoids conflicts
-  }, 1000); // Delay by 1s
-}
-const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
-const msUntilMidnight = midnight.getTime() - now.getTime();
+      // if (lastReset !== today) {
+      //   console.log('🔁 App opened after midnight — resetting now...');
+      //   store.resetPatientsAtMidnight();
+      // }
+      if (lastReset !== today) {
+        console.log('🔁 App opened after midnight — resetting now...');
+        setTimeout(() => {
+          store.resetPatientsAtMidnight(); // ✅ Delayed reset avoids conflicts
+        }, 1000); // Delay by 1s
+      }
+      const midnight = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+        0,
+        0,
+        0,
+      );
+      const msUntilMidnight = midnight.getTime() - now.getTime();
 
-  // const msUntilMidnight = 30000; // 30 seconds for test
-  const resetTime = new Date(Date.now() + msUntilMidnight);
-  console.log('⏰ Scheduled patient reset at', resetTime.toLocaleTimeString());
+      // const msUntilMidnight = 30000; // 30 seconds for test
+      const resetTime = new Date(Date.now() + msUntilMidnight);
+      console.log(
+        '⏰ Scheduled patient reset at',
+        resetTime.toLocaleTimeString(),
+      );
 
-  // ✅ Clear any previous timer
-  if (store.midnightResetTimer)
-     clearTimeout(store.midnightResetTimer);
+      // ✅ Clear any previous timer
+      if (store.midnightResetTimer) clearTimeout(store.midnightResetTimer);
 
-  store.midnightResetTimer = setTimeout(() => {
-    console.log("🚨 Timeout triggered");
-    store.resetPatientsAtMidnight();
-    store.setupMidnightReset();
-  }, msUntilMidnight);
-},
+      store.midnightResetTimer = setTimeout(() => {
+        console.log('🚨 Timeout triggered');
+        store.resetPatientsAtMidnight();
+        store.setupMidnightReset();
+      }, msUntilMidnight);
+    },
 
-
-  resetPatientsAtMidnight() {
-    console.log('⏱️ Midnight reached — resetting patient queue.');
-    store.patientQueue.clear();
-    store.selectedPatient.clear();
-    store.patients.clear();
-    store.patientsForList.clear?.();  // This will remove the patients that are from api 
-    // ✅ Save the reset date
-    mmkvStorage.set('lastPatientReset', new Date().toDateString());
-    ToastAndroid.show('⏱️ Midnight reached — resetting patient queue.',ToastAndroid.LONG);
-  }
-}));
-
+    resetPatientsAtMidnight() {
+      console.log('⏱️ Midnight reached — resetting patient queue.');
+      store.patientQueue.clear();
+      store.selectedPatient.clear();
+      // store.patients.clear();
+      // store.patientsForList.clear?.();  // This will remove the patients that are from api
+      // ✅ Save the reset date
+      mmkvStorage.set('lastPatientReset', new Date().toDateString());
+      ToastAndroid.show(
+        '⏱️ Midnight reached — resetting patient queue.',
+        ToastAndroid.LONG,
+      );
+    },
+  }));
 
 export interface PatientStore extends Instance<typeof PatientStoreModel> {}
 export interface PatientStoreSnapshot

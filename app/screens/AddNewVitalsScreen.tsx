@@ -207,7 +207,7 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
       patientStore.addNursingNote(nursingNote);
       const currentDateTime = moment().toISOString();
       patientStore.addVitalsTimeTime(currentDateTime);
- 
+
       patientStore.addNurseName(
         authenticationStore.login
           ? authenticationStore.login[0]?.FullName
@@ -235,13 +235,14 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
           JSON.stringify(selectedPatient), //..........................
           // JSON.stringify(patientStore.getSelectedPatient()[0]),
         );
-        tempPatient.MRN = selectedPatient.MRN || tempPatient.MRN || '';  // ...........................
+        tempPatient.MRN = selectedPatient.MRN || tempPatient.MRN || ''; // ...........................
         var array = [];
         array.push(values);
         tempPatient.Vitals = array;
         tempPatient.NursingNote = nursingNote;
         tempPatient.VitalsTime = _currentDateTime;
         tempPatient.status = 'Vitals';
+        // tempPatient.isUserAdded = tempPatient.isUserAdded ?? false;
 
         tempPatient.nurseName = authenticationStore.login
           ? authenticationStore.login[0]?.FullName
@@ -257,35 +258,44 @@ export const AddNewVitalsScreen: FC<PatientStackScreenProps<'AddNewVitals'>> =
             ? authenticationStore.login[0]?.FullName
             : '',
         };
-// ✅ Only apply fallback defaults for API patients
-if (!tempPatient.isUserAdded) {
-  try{
-  tempPatient.FirstName = tempPatient.FirstName || '';
-  tempPatient.LastName = tempPatient.LastName || '';
-  tempPatient.Gender = tempPatient.Gender || '';
-  tempPatient.MRN = selectedPatient.MRN || tempPatient.MRN || '';
-  // tempPatient.Medications = tempPatient.Medications || [];
-  // tempPatient.Services = tempPatient.Services || [];
-  tempPatient.Medications = Array.isArray(tempPatient.Medications) ? tempPatient.Medications : [];
-  tempPatient.Services = Array.isArray(tempPatient.Services) ? tempPatient.Services : [];
-  tempPatient.NursingNote = tempPatient.NursingNote || '';
-  tempPatient.CheckInSynced = tempPatient.CheckInSynced || false;
-  tempPatient.Address = tempPatient.Address || '';
-  tempPatient.City = tempPatient.City || '';
-  tempPatient.Province = tempPatient.Province || '';
-  tempPatient.Country = tempPatient.Country || 'Pakistan';
-  tempPatient.CNIC = tempPatient.CNIC || '';
-  tempPatient.CellPhoneNumber = tempPatient.CellPhoneNumber || '';
-  tempPatient.SiteName = tempPatient.SiteName || '';
-  tempPatient.MartialStatus = tempPatient.MartialStatus || '';
-  tempPatient.SpouseName = tempPatient.SpouseName || '';
-  // tempPatient.ZakatEligible = tempPatient.ZakatEligible || false;
-  tempPatient.ZakatEligible = typeof tempPatient.ZakatEligible === 'boolean' ? tempPatient.ZakatEligible : false;
-}
-  catch (e) {
-    ToastAndroid.show('Patient data incomplete. Some defaults skipped.', ToastAndroid.SHORT);
-  }
-}
+        // ✅ Only apply fallback defaults for API patients
+        if (!tempPatient.isUserAdded) {
+          try {
+            tempPatient.FirstName = tempPatient.FirstName || '';
+            tempPatient.LastName = tempPatient.LastName || '';
+            tempPatient.Gender = tempPatient.Gender || '';
+            tempPatient.MRN = selectedPatient.MRN || tempPatient.MRN || '';
+            // tempPatient.Medications = tempPatient.Medications || [];
+            // tempPatient.Services = tempPatient.Services || [];
+            tempPatient.Medications = Array.isArray(tempPatient.Medications)
+              ? tempPatient.Medications
+              : [];
+            tempPatient.Services = Array.isArray(tempPatient.Services)
+              ? tempPatient.Services
+              : [];
+            tempPatient.NursingNote = tempPatient.NursingNote || '';
+            tempPatient.CheckInSynced = tempPatient.CheckInSynced || false;
+            tempPatient.Address = tempPatient.Address || '';
+            tempPatient.City = tempPatient.City || '';
+            tempPatient.Province = tempPatient.Province || '';
+            tempPatient.Country = tempPatient.Country || 'Pakistan';
+            tempPatient.CNIC = tempPatient.CNIC || '';
+            tempPatient.CellPhoneNumber = tempPatient.CellPhoneNumber || '';
+            tempPatient.SiteName = tempPatient.SiteName || '';
+            tempPatient.MartialStatus = tempPatient.MartialStatus || '';
+            tempPatient.SpouseName = tempPatient.SpouseName || '';
+            // tempPatient.ZakatEligible = tempPatient.ZakatEligible || false;
+            tempPatient.ZakatEligible =
+              typeof tempPatient.ZakatEligible === 'boolean'
+                ? tempPatient.ZakatEligible
+                : false;
+          } catch (e) {
+            ToastAndroid.show(
+              'Patient data incomplete. Some defaults skipped.',
+              ToastAndroid.SHORT,
+            );
+          }
+        }
 
         if (global.successResponses) {
           let sIndexToFind = global.successResponses.findIndex(

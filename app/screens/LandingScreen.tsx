@@ -321,8 +321,8 @@ const rstyle = {
         />
       </View> */}
       <View style={$loginButtonView}>
-        <Text style={{fontSize:12,alignSelf:'center',color:'white'}}>Version: 2.0.0</Text>
-        <Text style={{fontSize:12,alignSelf:'center',color:'white'}}>28 May 2025</Text>
+        <Text style={{fontSize:12,alignSelf:'center',color:'white'}}>Version: 2.0.2</Text>
+        <Text style={{fontSize:12,alignSelf:'center',color:'white'}}>July 01, 2025</Text>
         <Button
           testID="login-button"
           tx="landingScreen.signIn"

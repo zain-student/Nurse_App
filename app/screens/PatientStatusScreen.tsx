@@ -642,7 +642,7 @@ export const PatientStatusScreen: FC<HomeTabScreenProps<'PatientStatus'>> =
               key={refresh}
               // data={patientQueue}
               // data={patientsForList.filter(item=>item.isUserAdded)}
-              data={patientsForList}
+              data={patientsForList.filter(item=>item.MRNNo !== "01-01-0100032" && item.MRNNo !== "01-01-0100033" )}
               // style={$patientsListView}
               extraData={refresh}
               renderItem={({item}) => <PatientItem title={item} />}

@@ -65,8 +65,8 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(
     // and pre-fill the form fields.
     // setAuthEmail('ignite@infinite.red');
     // setAuthPassword('ign1teIsAwes0m3');
-    setAuthEmail('');
-    setAuthPassword('');
+    // setAuthEmail('');
+    // setAuthPassword('');
   }, []);
 
   const error = isSubmitted ? validationError : '';
